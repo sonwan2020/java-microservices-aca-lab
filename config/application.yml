@@ -36,8 +36,9 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: none
-  zipkin:
-    enabled: false
+  # disable zipkin, see https://stackoverflow.com/questions/75474597/how-to-disable-zipkin-reporter-in-spring-boot-3
+  autoconfigure:
+    exclude: org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration
 
 # Spring Boot 1.5 makes actuator secure by default
 management.security.enabled: false
